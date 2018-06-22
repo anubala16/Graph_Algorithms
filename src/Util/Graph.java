@@ -4,6 +4,7 @@
 package Util;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -58,4 +59,23 @@ public class Graph {
 		this.edges = edges;
 	}
 
+	public String toString() {
+		StringBuilder s = new StringBuilder();
+		for (Edge e : edges) {
+			s.append(e.toString() + '\n');
+		}
+		s.append('\n');
+		return s.toString();
+	}
+	
+	public Vertex getVertex(String name) {
+		 Iterator<Vertex> iterator = vertices.iterator();
+	        while(iterator.hasNext()) {
+	            Vertex v = iterator.next();
+	            if(v.getName().equals(name))             
+	                return v;
+	        }
+
+	        return null;     
+	}
 }

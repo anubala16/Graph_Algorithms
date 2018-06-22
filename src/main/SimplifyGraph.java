@@ -1,4 +1,4 @@
-/**
+/**catf-8"
  * 
  */
 package main;
@@ -24,25 +24,27 @@ public class SimplifyGraph {
 
 		// parse file index to open each input file and parse each into a graph
 		File fileIndex = new File("fileIndex.txt");
+		System.out.println("File: " + fileIndex.toString());
 		Scanner scan = null;
 		try {
 			scan = new Scanner(fileIndex);
-			while (scan.hasNextLine()) {
-				scan.nextLine(); // skip initial blank line
-				scan.nextLine(); // skip basname title line
-				scan.nextLine(); // skip the title underline
-			}
+			System.out.println("Scanner: " + scan.toString());
+			
 			File graphFile = null;
 			while (scan.hasNextLine()) {
 				// opening and parsing one file at a time 
-				graphFile = new File(scan.nextLine() + ".txt");
+				String fileName = "dataFiles/" + scan.nextLine();
+				System.out.println("File: " + fileName);
+				graphFile = new File(fileName);
 				Scanner graphScan = new Scanner(graphFile);
 				Graph g = null;
 				MSTPrim mst = null;
 				ShortestPathDijkstra sp = null;
 				
 				// 1. first line of graph file
-				while (graphScan.hasNextLine()) {  
+				if (graphScan.hasNextLine()) {  
+					//String line = graphScan.nextLine();
+					//System.out.println("Graph file line: " + line);
 					int n = Integer.parseInt(graphScan.next()); // vertex count 
 					int m = Integer.parseInt(graphScan.next()); // edge count 
 					graphScan.next(); // skip the "U" token 
@@ -70,6 +72,7 @@ public class SimplifyGraph {
 						break;
 					}
 				}
+				System.out.println(g.toString());
 				graphScan.close(); // free file scanner for current graph 
 				
 				// calculate and display the shortest path and MST 
