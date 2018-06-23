@@ -9,18 +9,16 @@ package Util;
  */
 public class Vertex implements Comparable<Vertex> {
 
-	private String name;
-	private Vertex parent; 
-	private int distance;
-
+	private char name;
+	
 	public Vertex(String name) {
-		this.name = name;
+		this.name = name.charAt(0);
 	}
 
 	/**
 	 * @return the name
 	 */
-	public String getName() {
+	public char getName() {
 		return name;
 	}
 
@@ -28,45 +26,17 @@ public class Vertex implements Comparable<Vertex> {
 	 * @param name
 	 *            the name to set
 	 */
-	public void setName(String name) {
+	public void setName(char name) {
 		this.name = name;
 	}
 
-	/**
-	 * @return the parent
-	 */
-	public Vertex getParent() {
-		return parent;
-	}
-
-	/**
-	 * @param parent the parent to set
-	 */
-	public void setParent(Vertex parent) {
-		this.parent = parent;
-	}
-
-	/**
-	 * @return the distance
-	 */
-	public int getDistance() {
-		return distance;
-	}
-
-	/**
-	 * @param distance the distance to set
-	 */
-	public void setDistance(int distance) {
-		this.distance = distance;
-	}
-
 	public String toString() {
-		return name;
+		return name + "";
 	}
 
 	@Override
 	public int compareTo(Vertex v) {
-		return name.compareTo(v.getName());
+		return name - v.getName();
 	}
 	
 }

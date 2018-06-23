@@ -43,8 +43,6 @@ public class SimplifyGraph {
 				
 				// 1. first line of graph file
 				if (graphScan.hasNextLine()) {  
-					//String line = graphScan.nextLine();
-					//System.out.println("Graph file line: " + line);
 					int n = Integer.parseInt(graphScan.next()); // vertex count 
 					int m = Integer.parseInt(graphScan.next()); // edge count 
 					graphScan.next(); // skip the "U" token 
@@ -60,7 +58,7 @@ public class SimplifyGraph {
 						Vertex b = new Vertex(graphScan.next());
 						int weight = Integer.parseInt(graphScan.next());
 						Edge e = new Edge(a, b, weight);
-						g.add(e);
+						g.addEdge(e);
 						
 						if (!graphScan.hasNext()) { // MST without the last source vertex line in file 
 							mst = new MSTPrim(g);
@@ -72,7 +70,8 @@ public class SimplifyGraph {
 						break;
 					}
 				}
-				System.out.println(g.toString());
+				System.out.println("Here is the final graph:");
+				g.print();
 				graphScan.close(); // free file scanner for current graph 
 				
 				// calculate and display the shortest path and MST 
