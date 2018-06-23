@@ -51,6 +51,9 @@ public class Graph {
 		*/
 	}
 
+	/**
+	 * Prints the adjacency list for the graph 
+	 */
 	public void print() {
 		for(int i = 0; i < vertexCount; i++)
         {
@@ -61,7 +64,7 @@ public class Graph {
             }
             System.out.println("\n");
         }
-	}
+	} 
 	
 	/**
 	public Vertex getVertex(String name) {
