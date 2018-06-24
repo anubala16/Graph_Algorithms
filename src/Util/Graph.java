@@ -37,7 +37,6 @@ public class Graph {
 		Vertex v2 = e.getB();
 		int a = v1.getName() - 65;
 		int b = v2.getName() - 65;
-		System.out.println("V1 name: " + v1.getName() + "\tint: " + a);
 		adjList[a].addLast(v2);
 		adjList[b].addLast(v1);
 		/**
