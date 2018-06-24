@@ -4,7 +4,7 @@
 package Util;
 
 /**
- * 
+ * Edge class
  * 
  * @author ashah 
  * @author abalaji 
