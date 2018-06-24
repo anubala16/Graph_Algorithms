@@ -5,6 +5,7 @@ package main;
 
 import java.util.ArrayList;
 
+import Util.Edge;
 import Util.Graph;
 import Util.Vertex;
 
@@ -19,14 +20,14 @@ public class ShortestPathDijkstra {
 
 	private Graph graph; 
 	private Vertex source; 
-	private ArrayList<Vertex> path; 
+	private ArrayList<Edge> path; 
 	
 	public ShortestPathDijkstra(Graph g, Vertex src) {
 		// TODO Auto-generated constructor stub
 		System.out.println("Finding shortest path for graph...");
 		this.graph = g;
 		this.source = src;
-		this.path = new ArrayList<Vertex>();
+		this.path = new ArrayList<Edge>();
 	}
 
 	/**

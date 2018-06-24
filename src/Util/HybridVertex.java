@@ -9,7 +9,7 @@ package Util;
  * @author abalaji 
  *
  */
-public class HybridVertex {
+public class HybridVertex implements Comparable<HybridVertex>{
 
 	private Vertex vertex, parent;
 	private int distance;
@@ -60,4 +60,26 @@ public class HybridVertex {
 		this.vertex = vertex;
 	}
 	
+	@Override
+	public int compareTo(HybridVertex o) {
+		if (o instanceof HybridVertex) {
+			HybridVertex hbv = (HybridVertex) o;
+			return distance - hbv.getDistance();
+		}
+		return -1;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if (o instanceof HybridVertex) {
+			HybridVertex hbv = (HybridVertex) o;
+			if (vertex.equals(hbv.getVertex()))
+				return true;
+		} 
+		return false;
+	}
+	
+	public String toString() {
+		return vertex + "(" + parent + "," + distance + ")";
+	}
 }

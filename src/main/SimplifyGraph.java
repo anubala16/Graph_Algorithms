@@ -5,10 +5,12 @@ package main;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import Util.Edge;
 import Util.Graph;
+import Util.HybridVertex;
 import Util.Vertex;
 
 /**
@@ -75,6 +77,14 @@ public class SimplifyGraph {
 				graphScan.close(); // free file scanner for current graph 
 				
 				// calculate and display the shortest path and MST 
+				ArrayList<Edge> MST = mst.calculateMST();
+				int cost = 0; 
+				for (int i = 0; i < MST.size(); i++) {
+					cost += MST.get(i).getWeight();
+					System.out.print(MST.get(i) + "\t"); 
+				}
+				System.out.println();
+				System.out.println("Final cost: " + cost);
 				
 			}
 

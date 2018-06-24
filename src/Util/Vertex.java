@@ -39,4 +39,15 @@ public class Vertex implements Comparable<Vertex> {
 		return name - v.getName();
 	}
 	
+	@Override 
+	public boolean equals(Object o) {
+		if (o instanceof Vertex) {
+			Vertex temp = (Vertex) o;
+			if (name == temp.getName()) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 }
