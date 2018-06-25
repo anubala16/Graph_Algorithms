@@ -65,6 +65,6 @@ public class Edge {
 	}
 
 	public String toString() {
-		return "(" + a.toString() + "," + b.toString() + ") - " + weight + " ";
+		return "[" + a.toString() + "," + b.toString() + "] w=" + weight;
 	}
 }

@@ -28,7 +28,7 @@ public class MSTPrim {
 	public MSTPrim(Graph g) {
 		graph = g;
 		adjList = g.getGraph();
-		System.out.println("Finding the minimum spanning tree for graph");
+		
 	}
 
 	public ArrayList<Edge> calculateMST() {

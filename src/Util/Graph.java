@@ -42,9 +42,9 @@ public class Graph {
 		this.setEdgeCount(edgeCount);
 		vertices = new TreeSet<Vertex>();
 		
-		adjList = new LinkedList[vertexCount];
+		adjList = new LinkedList[26];
 		
-		for(int i = 0; i < vertexCount; i++) {
+		for(int i = 0; i < 26; i++) {
 			adjList[i] = new LinkedList<Edge>();
 		}
 	}
@@ -57,15 +57,6 @@ public class Graph {
 
 		adjList[a].addLast(e);
 		adjList[b].addLast(new Edge(e.getB(), e.getA(), e.getWeight()));
-		/**
-		for (int i = 0; i < vertexCount; i++) {
-			if (adjList[i].getFirst().getName() == a) {
-				adjList[i].addLast(v2);
-			} else if (adjList[i].getFirst().getName() == b) {
-				adjList[i].addLast(v1);
-			} 
-		}
-		*/
 		vertices.add(v1);
 		vertices.add(v2);
 		vertexCount = vertices.size();
@@ -79,7 +70,7 @@ public class Graph {
 	 * Prints the adjacency list for the graph 
 	 */
 	public void print() {
-		for(int i = 0; i < vertexCount; i++)
+		for(int i = 0; i < 26; i++)
         {
 			char v = (char) (i + 65);
             System.out.print("Adjacency list of vertex " + v);

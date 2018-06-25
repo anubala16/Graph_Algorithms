@@ -166,7 +166,7 @@ public class Dijkstra {
 		//System.out.println("File: " + fileIndex.toString());
     	
     	Dijkstra ob=new Dijkstra();
-        ob.input("dataFiles/file_01.txt");
+        ob.input("dataFiles/file_03.txt");
         //ob.displayGraph();
         ob.dijkstra();
         ob.displayResult();
