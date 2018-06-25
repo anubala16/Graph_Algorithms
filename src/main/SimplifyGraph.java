@@ -80,8 +80,10 @@ public class SimplifyGraph {
 				}
 				graphScan.close(); // free file scanner for current graph
 				
+				long start = System.nanoTime();
 				// calculate and display the shortest path and MST
 				ArrayList<Edge> MST = mst.calculateMST();
+				long mstTime = System.nanoTime();
 				System.out.println(
 						"----------------------------------------------\n--------------------------------\nPrim's Minimum Spanning Tree\n--------------------------------");
 				int cost = 0;
@@ -89,10 +91,12 @@ public class SimplifyGraph {
 					cost += MST.get(i).getWeight();
 					System.out.print(MST.get(i) + "\n");
 				}
-				System.out.println("Final cost for MST: " + cost + "\n");
-
+				System.out.println("Final cost for MST: " + cost);
+				System.out.println("Runtime: " + (mstTime - start) + " ns\n");
 				// Shortest Path!
+				start = System.nanoTime();
 				ArrayList<HybridVertex> path = sp.calculateShortestPath();
+				long shortestPathTime = System.nanoTime();
 				Stack<Vertex> parents = new Stack<Vertex>();
 				for (int i = 0; i < path.size(); i++) {
 					HybridVertex hbv = path.get(i);
@@ -116,6 +120,7 @@ public class SimplifyGraph {
 					}
 					System.out.println(" (cost: " + pathCost + ")\n");
 				}
+				System.out.println("Runtime: " + (shortestPathTime - start) + " ns\n"); 
 			} // end of file index file
 
 			scan.close(); // free scanner for file index
